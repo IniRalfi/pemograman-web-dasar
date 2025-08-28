@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form HTML</title>
+  </head>
+
+  <body>
+    <form action="../index.html" method="post" enctype="multipart/form-data">
+      <pre>First name : <input type="text" name="first_name" required /><br /></pre>
+      <pre>Last name  : <input type="text" name="last_name" required /><br /></pre>
+      <pre>Email      : <input type="email" name="email" required /><br /></pre>
+      <pre>Password   : <input type="password" name="password" required /><br /></pre>
+
+      <label for="jenis-kelamin">Jenis Kelamin:</label><br />
+      <input type="radio" name="jenis-kelamin" value="Laki-laki" required />
+      Laki-laki<br />
+      <input type="radio" name="jenis-kelamin" value="Perempuan" required />
+      Perempuan<br /><br />
+
+      <label for="makanan">Makanan Favorit:</label>
+      <br /><input type="checkbox" name="makanan[]" value="Nasi Goreng" /> Nasi
+      Goreng<br />
+      <input type="checkbox" name="makanan[]" value="Sate" /> Sate<br />
+      <input type="checkbox" name="makanan[]" value="Rendang" /> Rendang<br />
+      <input type="checkbox" name="makanan[]" value="Sushi" /> Sushi<br />
+
+      <br /><label for="mata-kuliah">Mata kuliah favorit</label><br />
+      <select name="mata-kuliah" id="">
+        <option value="Pemrograman Web">Pemograman Web</option>
+        <option value="Aljabar Linear">Aljabar Liner</option>
+        <option value="APSI">APSI</option></select
+      ><br />
+
+      <label for="pesan">Pesan Kesan</label><br />
+      <textarea
+        name="pesan"
+        id=""
+        cols="50"
+        rows="4"
+        placeholder="Silakan isi pesan dan kesan anda disini"
+      ></textarea>
+      <br />
+      <label for="file-upload">Upload File:</label><br />
+      <input
+        type="file"
+        name="file-upload"
+        id="file-upload"
+        accept=".jpg, .jpeg, .png, .pdf"
+      /><br />
+
+      <br /><input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

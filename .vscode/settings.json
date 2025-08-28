@@ -1,0 +1,14 @@
+{
+    // Pakai Prettier sebagai default formatter
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // Format otomatis saat save
+    "editor.formatOnSave": true,
+
+    // Aturan khusus Prettier
+    "prettier.singleQuote": true, // pakai tanda kutip tunggal
+    "prettier.semi": false, // tanpa titik koma
+    "prettier.tabWidth": 2, // indentasi 2 spasi
+    "prettier.trailingComma": "es5", // trailing comma di object/array
+    "prettier.printWidth": 100 // maksimal lebar baris
+}

@@ -14,9 +14,8 @@
       body {
         min-height: 100vh;
         margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top left, #0f172a, #1e293b);
-        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
         color: #f8fafc;
       }
 
@@ -93,21 +92,12 @@
           <div class="card p-4">
             <h5 class="card-title">Praktikum Pertemuan 1 (14 Agustus 2025)</h5>
             <div class="d-flex flex-column gap-3 mt-3">
-              <a
-                href="Pertemuan_1/halaman1.html"
-                target="_blank"
-                class="btn btn-modern"
+              <a href="Pertemuan_1/halaman1.html" target="_blank" class="btn btn-modern"
                 >Halaman 1</a
               >
-              <a href="Pertemuan_1/halaman2.html" class="btn btn-modern"
-                >Halaman 2</a
-              >
-              <a href="Pertemuan_1/halaman3.html" class="btn btn-modern"
-                >Halaman 3</a
-              >
-              <a href="Pertemuan_1/halaman4.html" class="btn btn-modern"
-                >Halaman 4</a
-              >
+              <a href="Pertemuan_1/halaman2.html" class="btn btn-modern">Halaman 2</a>
+              <a href="Pertemuan_1/halaman3.html" class="btn btn-modern">Halaman 3</a>
+              <a href="Pertemuan_1/halaman4.html" class="btn btn-modern">Halaman 4</a>
             </div>
           </div>
         </div>
@@ -117,15 +107,21 @@
           <div class="card p-4">
             <h5 class="card-title">Praktikum Pertemuan 2 (21 Agustus 2025)</h5>
             <div class="d-flex flex-column gap-3 mt-3">
-              <a
-                href="Pertemuan_2/halaman1.html"
-                target="_blank"
-                class="btn btn-modern"
+              <a href="Pertemuan_2/halaman1.html" target="_blank" class="btn btn-modern"
                 >Halaman 1</a
               >
-              <a href="Pertemuan_2/halaman2.html" class="btn btn-modern"
-                >Halaman 2</a
-              >
+              <a href="Pertemuan_2/halaman2.html" class="btn btn-modern">Halaman 2</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Pertemuan 3 -->
+        <div class="col-md-5">
+          <div class="card p-4">
+            <h5 class="card-title">Praktikum Pertemuan 3 (28 Agustus 2025)</h5>
+            <div class="d-flex flex-column gap-3 mt-3">
+              <a href="Pertemuan_3/halaman1.html" class="btn btn-modern">Halaman 1</a>
+              <a href="Pertemuan_3/halaman2.html" class="btn btn-modern">Halaman 2</a>
             </div>
           </div>
         </div>
@@ -133,34 +129,35 @@
     </div>
 
     <!-- Particles Script -->
+    <!-- Particles + Rocket + Astronaut Script -->
     <script>
-      const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
+      const canvas = document.getElementById('particles')
+      const ctx = canvas.getContext('2d')
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
 
-      const particles = [];
-      const rockets = [];
-      const rocketImg = new Image();
-      rocketImg.src = "assets/rocket.png"; // path ke gambar roket
-
-      const astronauts = []; // typo diperbaiki
-      const astronautImg = new Image();
-      astronautImg.src = "assets/astronaut.png"; // path ke gambar astronaut
-
-      // Bintang partikel
-      for (let i = 0; i < 80; i++) {
+      // === Partikel Bintang (versi jatuh ke bawah) ===
+      const particles = []
+      for (let i = 0; i < 100; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          r: Math.random() * 2 + 1,
-          dx: (Math.random() - 0.5) * 0.8,
-          dy: (Math.random() - 0.5) * 0.8,
-        });
+          size: Math.random() * 2,
+          speed: Math.random() * 0.5 + 0.2,
+        })
       }
 
-      // Fungsi buat roket baru
+      // === Gambar ===
+      const rockets = []
+      const rocketImg = new Image()
+      rocketImg.src = 'assets/rocket.png' // path ke gambar roket
+
+      const astronauts = []
+      const astronautImg = new Image()
+      astronautImg.src = 'assets/astronaut.png' // path ke gambar astronaut
+
+      // === Spawn roket ===
       function spawnRocket() {
         rockets.push({
           x: Math.random() * canvas.width,
@@ -168,93 +165,88 @@
           dx: (Math.random() - 0.5) * 1.5,
           dy: -(2 + Math.random() * 3),
           size: 120, // lebar roket dalam px
-        });
+        })
       }
-      setInterval(spawnRocket, 4000);
+      setInterval(spawnRocket, 4000)
 
-      // Fungsi buat astronaut baru
+      // === Spawn astronaut kecil ===
       function spawnAstronaut() {
         astronauts.push({
           x: Math.random() * canvas.width,
           y: canvas.height + 50,
-          dx: (Math.random() - 0.5) * 1.2, // gerakan lebih lembut
-          dy: -(1 + Math.random() * 1.2), // naik lebih pelan dari roket
-          size: 50, // lebar astronaut dalam px
-        });
+          dx: (Math.random() - 0.5) * 1.2,
+          dy: -(1 + Math.random() * 1.2),
+          size: 50,
+        })
       }
-      setInterval(spawnAstronaut, 6000);
+      setInterval(spawnAstronaut, 6000)
 
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // --- Partikel bintang ---
+      // === Gambar Partikel ===
+      function drawParticles() {
+        ctx.fillStyle = 'white'
         particles.forEach((p) => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(167, 139, 250, 0.7)";
-          ctx.fill();
+          ctx.beginPath()
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
+          ctx.fill()
 
-          p.x += p.dx;
-          p.y += p.dy;
+          p.y += p.speed
+          if (p.y > canvas.height) {
+            p.y = 0
+            p.x = Math.random() * canvas.width
+          }
+        })
+      }
 
-          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-        });
+      // === Animasi ===
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-        // --- Roket ---
+        // partikel
+        drawParticles()
+
+        // roket
         rockets.forEach((r, i) => {
           if (rocketImg.complete) {
-            const aspectRatio = rocketImg.height / rocketImg.width;
-            const rocketHeight = r.size * aspectRatio;
-
-            // gambar roket
-            ctx.drawImage(rocketImg, r.x, r.y, r.size, rocketHeight);
-
-            // ekor roket glow
-            ctx.beginPath();
-            ctx.moveTo(r.x + r.size / 2, r.y + rocketHeight);
-            ctx.lineTo(r.x + r.size / 2, r.y + rocketHeight + 20);
-            ctx.strokeStyle = "rgba(255, 180, 120, 0.6)";
-            ctx.lineWidth = 3;
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = "orange";
-            ctx.stroke();
-            ctx.shadowBlur = 0;
+            const aspectRatio = rocketImg.height / rocketImg.width
+            const rocketHeight = r.size * aspectRatio
+            ctx.drawImage(rocketImg, r.x, r.y, r.size, rocketHeight)
           }
+          r.x += r.dx
+          r.y += r.dy
+          if (r.y < -150) rockets.splice(i, 1)
+        })
 
-          // update posisi
-          r.x += r.dx;
-          r.y += r.dy;
-
-          if (r.y < -150) rockets.splice(i, 1);
-        });
-
-        // --- Astronaut ---
+        // astronaut
         astronauts.forEach((a, i) => {
           if (astronautImg.complete) {
-            const aspectRatio = astronautImg.height / astronautImg.width;
-            const astronautHeight = a.size * aspectRatio;
-
-            ctx.drawImage(astronautImg, a.x, a.y, a.size, astronautHeight);
+            const aspectRatio = astronautImg.height / astronautImg.width
+            const astronautHeight = a.size * aspectRatio
+            ctx.drawImage(astronautImg, a.x, a.y, a.size, astronautHeight)
           }
+          a.x += a.dx
+          a.y += a.dy
+          if (a.y < -150) astronauts.splice(i, 1)
+        })
 
-          // update posisi
-          a.x += a.dx;
-          a.y += a.dy;
-
-          // hapus kalau sudah keluar layar
-          if (a.y < -150) astronauts.splice(i, 1);
-        });
-
-        requestAnimationFrame(animate);
+        requestAnimationFrame(animate)
       }
 
-      animate();
+      // spawn awal
+      spawnRocket()
+      spawnAstronaut()
 
-      window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
+      // mulai animasi setelah gambar siap
+      rocketImg.onload = () => {
+        astronautImg.onload = () => {
+          animate()
+        }
+      }
+
+      // resize canvas
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      })
     </script>
   </body>
 </html>
