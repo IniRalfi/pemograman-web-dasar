@@ -8,13 +8,20 @@
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
-        background-color: lightblue;
+        background-color: rgb(106, 148, 255);
+      }
+      .satu {
+        list-style-position: outside;
+        list-style-type: square;
       }
       .satu li:nth-child(2) {
         color: red;
         text-decoration: overline;
       }
 
+      .dua {
+        list-style-position: inside;
+      }
       .dua li:nth-child(3) {
         color: blue;
       }
@@ -23,7 +30,12 @@
 
   <body>
     <h1>Smart phone Review - SisfoPhone</h1>
-    <img src="a1.jpg" alt="200x200" width="200" height="200" />
+    <img
+      src="data:image/jpeg;base64,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"
+      alt="200x200"
+      width="200"
+      height="200"
+    />
 
     <ul class="satu">
       <li>Introduction</li>
