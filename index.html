@@ -1,252 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pustaka Tugas HTML</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
 
-    <style>
-      /* === Background === */
-      body {
-        min-height: 100vh;
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
-        color: #f8fafc;
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pustaka Tugas HTML</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* === Reset & Base === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #312e81 50%, #1e1b4b 75%, #0f172a 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
       }
 
-      canvas#particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* === Particles Canvas === */
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* === Main Container === */
+    .main-container {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* === Header === */
+    .header-section {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+    }
+
+    .main-title {
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6, #fbbf24);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientText 8s ease infinite;
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes gradientText {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
       }
 
-      /* === Container Styling === */
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #cbd5e1;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    /* === Cards Grid === */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    /* === Card Styling === */
+    .assignment-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .assignment-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .assignment-card:hover::before {
+      opacity: 1;
+    }
+
+    .assignment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    .card-title {
+      color: #e2e8f0;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .card-date {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    /* === Button Styling === */
+    .buttons-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .btn-modern {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #f1f5f9;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-modern:hover::before {
+      left: 100%;
+    }
+
+    .btn-modern:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+      color: white;
+    }
+
+    .btn-modern:active {
+      transform: translateY(0);
+    }
+
+    /* === Footer === */
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+    }
+
+    .footer p {
+      color: #94a3b8;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* === Responsive Design === */
+    @media (max-width: 768px) {
       .main-container {
-        position: relative;
-        z-index: 1;
-        padding: 3rem 1rem;
+        padding: 1rem;
       }
 
-      h1 {
-        font-weight: 700;
-        font-size: 2.5rem;
-        color: #e0e7ff;
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
-      /* === Card Styling === */
-      .card {
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      .assignment-card {
+        padding: 1.5rem;
       }
 
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+      .buttons-container {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-section {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
       }
 
-      .card-title {
-        color: #e0e7ff;
-        font-size: 1.3rem;
+      .assignment-card {
+        padding: 1.2rem;
       }
 
-      /* === Button Styling === */
-      .btn-modern {
-        background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
-        color: #fff;
-        font-weight: 600;
-        border: none;
-        border-radius: 12px;
-        padding: 1rem 1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 16px rgba(167, 139, 250, 0.4);
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
       }
 
-      .btn-modern:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 24px rgba(244, 114, 182, 0.5);
+      .card-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
       }
-    </style>
-  </head>
-  <body>
-    <!-- Background Particles -->
-    <canvas id="particles"></canvas>
+    }
 
-    <div class="main-container container text-center">
-      <h1 class="mb-5">📚 Pustaka Tugas HTML</h1>
+    /* === Loading Animation === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
 
-      <div class="row justify-content-center g-4">
-        <!-- Card Pertemuan 1 -->
-        <div class="col-md-5">
-          <div class="card p-4">
-            <h5 class="card-title">Praktikum Pertemuan 1 (14 Agustus 2025)</h5>
-            <div class="d-flex flex-column gap-3 mt-3">
-              <a href="Pertemuan_1/halaman1.html" target="_blank" class="btn btn-modern"
-                >Halaman 1</a
-              >
-              <a href="Pertemuan_1/halaman2.html" class="btn btn-modern">Halaman 2</a>
-              <a href="Pertemuan_1/halaman3.html" class="btn btn-modern">Halaman 3</a>
-              <a href="Pertemuan_1/halaman4.html" class="btn btn-modern">Halaman 4</a>
-            </div>
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === Stagger Animation === */
+    .assignment-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .assignment-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .assignment-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .assignment-card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .assignment-card:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Particles -->
+  <canvas id="particles"></canvas>
+
+  <div class="main-container">
+    <!-- Header Section -->
+    <div class="header-section fade-in">
+      <h1 class="main-title">
+        <i class="fas fa-book-open"></i> Pustaka Tugas HTML
+      </h1>
+      <p class="subtitle">Koleksi tugas praktikum pemrograman web dengan HTML & CSS</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid">
+      <!-- Pertemuan 1 -->
+      <div class="assignment-card fade-in">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div>
+            <h5 class="card-title">Praktikum Pertemuan 1</h5>
+            <div class="card-date">14 Agustus 2025</div>
           </div>
         </div>
+        <div class="buttons-container">
+          <a href="Pertemuan_1/halaman1.html" target="_blank" class="btn-modern">
+            <i class="fas fa-external-link-alt"></i> Halaman 1
+          </a>
+          <a href="Pertemuan_1/halaman2.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 2
+          </a>
+          <a href="Pertemuan_1/halaman3.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 3
+          </a>
+          <a href="Pertemuan_1/halaman4.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 4
+          </a>
+        </div>
+      </div>
 
-        <!-- Card Pertemuan 2 -->
-        <div class="col-md-5">
-          <div class="card p-4">
-            <h5 class="card-title">Praktikum Pertemuan 2 (21 Agustus 2025)</h5>
-            <div class="d-flex flex-column gap-3 mt-3">
-              <a href="Pertemuan_2/halaman1.html" target="_blank" class="btn btn-modern"
-                >Halaman 1</a
-              >
-              <a href="Pertemuan_2/halaman2.html" class="btn btn-modern">Halaman 2</a>
-            </div>
+      <!-- Pertemuan 2 -->
+      <div class="assignment-card fade-in">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div>
+            <h5 class="card-title">Praktikum Pertemuan 2</h5>
+            <div class="card-date">21 Agustus 2025</div>
           </div>
         </div>
+        <div class="buttons-container">
+          <a href="Pertemuan_2/halaman1.html" target="_blank" class="btn-modern">
+            <i class="fas fa-external-link-alt"></i> Halaman 1
+          </a>
+          <a href="Pertemuan_2/halaman2.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 2
+          </a>
+        </div>
+      </div>
 
-        <!-- Card Pertemuan 3 -->
-        <div class="col-md-5">
-          <div class="card p-4">
-            <h5 class="card-title">Praktikum Pertemuan 3 (28 Agustus 2025)</h5>
-            <div class="d-flex flex-column gap-3 mt-3">
-              <a href="Pertemuan_3/halaman1.html" class="btn btn-modern">Halaman 1</a>
-              <a href="Pertemuan_3/halaman2.html" class="btn btn-modern">Halaman 2</a>
-            </div>
+      <!-- Pertemuan 3 -->
+      <div class="assignment-card fade-in">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-layer-group"></i>
           </div>
+          <div>
+            <h5 class="card-title">Praktikum Pertemuan 3</h5>
+            <div class="card-date">28 Agustus 2025</div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <a href="Pertemuan_3/halaman1.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 1
+          </a>
+          <a href="Pertemuan_3/halaman2.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 2
+          </a>
+        </div>
+      </div>
+
+      <!-- Pertemuan 4 -->
+      <div class="assignment-card fade-in">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <div>
+            <h5 class="card-title">Praktikum Pertemuan 4</h5>
+            <div class="card-date">4 September 2025</div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <a href="Pertemuan_4/halaman1.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 1
+          </a>
+          <a href="Pertemuan_4/halaman2.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 2
+          </a>
+        </div>
+      </div>
+
+      <!-- Pertemuan 5 -->
+      <div class="assignment-card fade-in">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div>
+            <h5 class="card-title">Praktikum Pertemuan 5</h5>
+            <div class="card-date">11 September 2025</div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <a href="Pertemuan_5/halaman1.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 1
+          </a>
+          <a href="Pertemuan_5/halaman2.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 2
+          </a>
+          <a href="Pertemuan_5/halaman3.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 3
+          </a>
+          <a href="Pertemuan_5/halaman4.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 4
+          </a>
+          <a href="Pertemuan_5/halaman5.html" class="btn-modern">
+            <i class="fas fa-file-code"></i> Halaman 5
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Particles Script -->
-    <!-- Particles + Rocket + Astronaut Script -->
-    <script>
-      const canvas = document.getElementById('particles')
-      const ctx = canvas.getContext('2d')
+    <!-- Footer -->
+    <div class="footer fade-in">
+      <p><i class="fas fa-heart" style="color: #f472b6;"></i> Dibuat dengan semangat untuk belajar</p>
+    </div>
+  </div>
 
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+  <!-- Enhanced Particles Script -->
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
 
-      // === Partikel Bintang (versi jatuh ke bawah) ===
-      const particles = []
-      for (let i = 0; i < 100; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 2,
-          speed: Math.random() * 0.5 + 0.2,
-        })
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+
+    // Particle system
+    const particles = [];
+    const particleCount = 80;
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random() * 0.6 + 0.2,
+        twinkle: Math.random() * 0.02 + 0.005
+      });
+    }
+
+    // Floating elements
+    const floatingElements = [];
+
+    function createFloatingElement(type) {
+      return {
+        x: Math.random() * canvas.width,
+        y: canvas.height + 50,
+        size: type === 'rocket' ? 60 + Math.random() * 40 : 30 + Math.random() * 20,
+        speedX: (Math.random() - 0.5) * 1.5,
+        speedY: -(1 + Math.random() * 2),
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
+        type: type,
+        opacity: 0.7 + Math.random() * 0.3
+      };
+    }
+
+    // Spawn floating elements periodically
+    setInterval(() => {
+      if (Math.random() < 0.7) {
+        floatingElements.push(createFloatingElement('star'));
+      } else {
+        floatingElements.push(createFloatingElement('rocket'));
       }
+    }, 3000);
 
-      // === Gambar ===
-      const rockets = []
-      const rocketImg = new Image()
-      rocketImg.src = 'assets/rocket.png' // path ke gambar roket
+    // Draw functions
+    function drawParticles() {
+      particles.forEach(particle => {
+        ctx.save();
+        ctx.globalAlpha = particle.opacity;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
 
-      const astronauts = []
-      const astronautImg = new Image()
-      astronautImg.src = 'assets/astronaut.png' // path ke gambar astronaut
+        // Update particle position
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
 
-      // === Spawn roket ===
-      function spawnRocket() {
-        rockets.push({
-          x: Math.random() * canvas.width,
-          y: canvas.height + 50,
-          dx: (Math.random() - 0.5) * 1.5,
-          dy: -(2 + Math.random() * 3),
-          size: 120, // lebar roket dalam px
-        })
-      }
-      setInterval(spawnRocket, 4000)
-
-      // === Spawn astronaut kecil ===
-      function spawnAstronaut() {
-        astronauts.push({
-          x: Math.random() * canvas.width,
-          y: canvas.height + 50,
-          dx: (Math.random() - 0.5) * 1.2,
-          dy: -(1 + Math.random() * 1.2),
-          size: 50,
-        })
-      }
-      setInterval(spawnAstronaut, 6000)
-
-      // === Gambar Partikel ===
-      function drawParticles() {
-        ctx.fillStyle = 'white'
-        particles.forEach((p) => {
-          ctx.beginPath()
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-          ctx.fill()
-
-          p.y += p.speed
-          if (p.y > canvas.height) {
-            p.y = 0
-            p.x = Math.random() * canvas.width
-          }
-        })
-      }
-
-      // === Animasi ===
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-        // partikel
-        drawParticles()
-
-        // roket
-        rockets.forEach((r, i) => {
-          if (rocketImg.complete) {
-            const aspectRatio = rocketImg.height / rocketImg.width
-            const rocketHeight = r.size * aspectRatio
-            ctx.drawImage(rocketImg, r.x, r.y, r.size, rocketHeight)
-          }
-          r.x += r.dx
-          r.y += r.dy
-          if (r.y < -150) rockets.splice(i, 1)
-        })
-
-        // astronaut
-        astronauts.forEach((a, i) => {
-          if (astronautImg.complete) {
-            const aspectRatio = astronautImg.height / astronautImg.width
-            const astronautHeight = a.size * aspectRatio
-            ctx.drawImage(astronautImg, a.x, a.y, a.size, astronautHeight)
-          }
-          a.x += a.dx
-          a.y += a.dy
-          if (a.y < -150) astronauts.splice(i, 1)
-        })
-
-        requestAnimationFrame(animate)
-      }
-
-      // spawn awal
-      spawnRocket()
-      spawnAstronaut()
-
-      // mulai animasi setelah gambar siap
-      rocketImg.onload = () => {
-        astronautImg.onload = () => {
-          animate()
+        // Twinkle effect
+        particle.opacity += particle.twinkle;
+        if (particle.opacity > 0.8 || particle.opacity < 0.2) {
+          particle.twinkle = -particle.twinkle;
         }
-      }
 
-      // resize canvas
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
-      })
-    </script>
-  </body>
+        // Wrap around screen
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+        if (particle.y > canvas.height) particle.y = 0;
+      });
+    }
+
+    function drawFloatingElements() {
+      floatingElements.forEach((element, index) => {
+        ctx.save();
+        ctx.globalAlpha = element.opacity;
+        ctx.translate(element.x + element.size / 2, element.y + element.size / 2);
+        ctx.rotate(element.rotation);
+
+        // if (element.type === 'rocket') {
+        //   // Draw rocket shape
+        //   ctx.fillStyle = '#60a5fa';
+        //   ctx.fillRect(-element.size / 6, -element.size / 2, element.size / 3, element.size);
+
+        //   ctx.fillStyle = '#f472b6';
+        //   ctx.beginPath();
+        //   ctx.moveTo(0, -element.size / 2);
+        //   ctx.lineTo(-element.size / 4, -element.size / 3);
+        //   ctx.lineTo(element.size / 4, -element.size / 3);
+        //   ctx.closePath();
+        //   ctx.fill();
+
+        //   // Flame
+        //   ctx.fillStyle = '#fbbf24';
+        //   ctx.fillRect(-element.size / 12, element.size / 2, element.size / 6, element.size / 4);
+        // } else {
+        //   // Draw star
+        //   ctx.fillStyle = '#fbbf24';
+        //   ctx.beginPath();
+        //   for (let i = 0; i < 5; i++) {
+        //     const angle = (i * Math.PI * 2) / 5 - Math.PI / 2;
+        //     const x = Math.cos(angle) * element.size / 4;
+        //     const y = Math.sin(angle) * element.size / 4;
+        //     if (i === 0) ctx.moveTo(x, y);
+        //     else ctx.lineTo(x, y);
+
+        //     const innerAngle = ((i + 0.5) * Math.PI * 2) / 5 - Math.PI / 2;
+        //     const innerX = Math.cos(innerAngle) * element.size / 8;
+        //     const innerY = Math.sin(innerAngle) * element.size / 8;
+        //     ctx.lineTo(innerX, innerY);
+        //   }
+        //   ctx.closePath();
+        //   ctx.fill();
+        // }
+
+        ctx.restore();
+
+        // Update element
+        element.x += element.speedX;
+        element.y += element.speedY;
+        element.rotation += element.rotationSpeed;
+
+        // Remove elements that are off-screen
+        if (element.y < -100) {
+          floatingElements.splice(index, 1);
+        }
+      });
+    }
+
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawParticles();
+      drawFloatingElements();
+
+      requestAnimationFrame(animate);
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+    });
+
+    // Start animation
+    animate();
+
+    // Add scroll reveal effect
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+
 </html>
