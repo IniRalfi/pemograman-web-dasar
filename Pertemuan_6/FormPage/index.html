@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dengan Operator Logika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Form Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" name="" id="username" placeholder="Masukkan username anda">
+        <label for="password">Password:</label>
+        <input type="password" name="" id="password" placeholder="Masukkan password anda">
+        <label for="role">Pilih Role:</label>
+        <select name="role" id="role">
+            <option value=""></option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="guest">Guest</option>
+        </select>
+        <button onclick="login()">Login</button>
+
+
+        <div class="result" id="hasil"> Status login akan tampil disini</div>
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>
