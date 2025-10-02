@@ -1,73 +1,196 @@
-/* ================== GENERAL & LOGIN STYLES (DARI SEBELUMNYA) ================== */
+/* =================================================================== */
+/* ================= STYLE LOGIN MINIMALIS (V3) ====================== */
+/* =================================================================== */
+
+/* Reset dasar dan import font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 body,
 html {
 	margin: 0;
 	padding: 0;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	background-color: #f4f7f6;
+	font-family: "Poppins", sans-serif;
 	height: 100%;
 }
 
 .hidden {
-	display: none !important; /* Penting untuk menyembunyikan elemen */
+	display: none !important;
 }
 
-.login-container {
+/* Wrapper Login Utama dengan Latar Belakang Terang */
+.login-wrapper-minimalist {
 	height: 100%;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: #f8f9fa; /* Warna latar belakang abu-abu sangat muda */
 }
 
-.login-form {
-	background-color: #ffffff;
+/* Form Login Minimalis */
+.login-form-minimalist {
+	background: #ffffff;
+	border: 1px solid #dee2e6;
 	padding: 40px;
-	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
 	width: 100%;
 	max-width: 400px;
 	text-align: center;
+	animation: fadeIn 0.7s ease-out forwards;
 }
 
-.logo {
-	width: 80px;
-	margin-bottom: 20px;
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
-/* (Tambahkan sisa style login form dari kode sebelumnya di sini jika perlu) */
-.login-form h2,
-.login-form p,
-.form-group,
-.btn,
-.error-message {
-	/* (Style ini sama seperti sebelumnya) */
+
+.form-header .logo {
+	width: 70px;
 	margin-bottom: 15px;
 }
-.form-group input {
-	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
+.form-header h2 {
+	margin: 0 0 5px;
+	font-weight: 600;
+	color: #212529;
 }
-.btn {
-	width: 100%;
-	padding: 12px;
-	background-color: #0056b3;
-	border: none;
-	border-radius: 4px;
-	color: white;
-	font-size: 16px;
-	cursor: pointer;
-}
-.btn:hover {
-	background-color: #004494;
-}
-.error-message {
-	color: #d93025;
-	font-weight: bold;
-	min-height: 20px;
+.form-header p {
+	margin: 0 0 30px;
+	color: #6c757d;
 }
 
-/* ================== APP DASHBOARD STYLES (DESAIN BARU) ================== */
+/* Grup Input dengan Floating Label & Ikon */
+.input-group {
+	position: relative;
+	margin-bottom: 25px;
+}
+
+.input-icon {
+	position: absolute;
+	top: 50%;
+	left: 15px;
+	transform: translateY(-50%);
+	color: #adb5bd; /* Abu-abu medium */
+	transition: color 0.3s;
+}
+
+.input-group input {
+	width: 100%;
+	padding: 15px 15px 15px 50px; /* Ruang untuk ikon */
+	background: #f8f9fa;
+	border: 1px solid #ced4da;
+	border-radius: 8px;
+	color: #212529;
+	font-size: 16px;
+	box-sizing: border-box;
+	transition: all 0.3s;
+}
+
+.input-group input::placeholder {
+	color: transparent;
+}
+
+.input-group label {
+	position: absolute;
+	top: 16px;
+	left: 50px;
+	color: #6c757d;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
+/* Animasi Floating Label */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+	top: -10px;
+	left: 45px;
+	font-size: 12px;
+	background-color: #ffffff; /* Warna putih agar menutupi border input */
+	padding: 0 5px;
+	color: #0056b3; /* Warna biru saat aktif */
+}
+
+.input-group input:focus {
+	outline: none;
+	border-color: #0056b3;
+	box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+.input-group input:focus ~ .input-icon {
+	color: #0056b3;
+}
+
+/* Tombol Modern */
+.btn-modern {
+	width: 100%;
+	padding: 15px;
+	background: #0056b3;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.btn-modern:hover {
+	transform: translateY(-2px);
+	background: #004494;
+	box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
+}
+
+/* Pesan Error & Footer */
+.error-message {
+	color: #d93025;
+	font-weight: 500;
+	min-height: 20px;
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+.error-message.shake-animation {
+	animation: shake 0.5s;
+}
+@keyframes shake {
+	10%,
+	90% {
+		transform: translateX(-1px);
+	}
+	20%,
+	80% {
+		transform: translateX(2px);
+	}
+	30%,
+	50%,
+	70% {
+		transform: translateX(-4px);
+	}
+	40%,
+	60% {
+		transform: translateX(4px);
+	}
+}
+
+.form-footer {
+	margin-top: 20px;
+}
+.form-footer a {
+	color: #0056b3;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+}
+.form-footer a:hover {
+	text-decoration: underline;
+}
+/* =================================================================== */
+/* ======================== STYLE HALAMAN BERANDA ==================== */
+/* =================================================================== */
 
 #app-container {
 	width: 100%;
@@ -89,27 +212,22 @@ html {
 	display: flex;
 	align-items: center;
 }
-
 .logo-container img {
 	height: 40px;
 	margin-right: 15px;
 }
-
 .logo-text {
 	display: flex;
 	flex-direction: column;
 }
-
 .logo-text span {
 	font-size: 14px;
 	line-height: 1;
 }
-
 .logo-text strong {
 	font-size: 18px;
 	line-height: 1;
 }
-
 .user-actions {
 	font-size: 24px;
 	display: flex;
@@ -122,14 +240,12 @@ html {
 	padding: 0 40px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .main-nav ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	display: flex;
 }
-
 .main-nav a {
 	display: block;
 	padding: 15px 20px;
@@ -138,11 +254,9 @@ html {
 	font-weight: 500;
 	border-bottom: 3px solid transparent;
 }
-
 .main-nav a:hover {
 	color: #004a94;
 }
-
 .main-nav a.active {
 	border-bottom-color: #004a94;
 	color: #004a94;
@@ -153,28 +267,37 @@ html {
 	display: flex;
 	gap: 30px;
 	padding: 30px 40px;
-	align-items: flex-start; /* Konten atas sejajar */
+	align-items: flex-start;
+}
+
+/* Konten di Halaman Beranda */
+.content-section.active {
+	display: block;
+}
+.content-section.hidden {
+	display: none;
+}
+#beranda.content-section.active {
+	width: 100%;
 }
 
 .content-left {
-	flex: 2.5; /* Lebar 2.5 bagian */
+	flex: 2.5;
 }
-
 .sidebar-right {
-	flex: 1; /* Lebar 1 bagian */
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
 }
 
-/* Gaya Kartu (Card) yang diperbarui */
+/* Gaya Kartu (Card) Umum */
 .card {
 	background-color: #ffffff;
 	border-radius: 8px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 	border: 1px solid #e0e0e0;
 }
-
 .card-header {
 	padding: 15px 20px;
 	border-bottom: 1px solid #e9ecef;
@@ -182,26 +305,21 @@ html {
 	justify-content: space-between;
 	align-items: center;
 }
-
 .card-header h3 {
 	margin: 0;
 	font-size: 16px;
 }
-
 .date-display {
 	font-size: 14px;
 	color: #666;
 }
-
 .card-body {
 	padding: 20px;
 }
-
 .centered-content {
 	text-align: center;
 	padding: 30px;
 }
-
 .empty-state-img {
 	max-width: 200px;
 	margin-bottom: 20px;
@@ -209,11 +327,9 @@ html {
 .empty-state-img.small {
 	max-width: 100px;
 }
-
 .centered-content h4 {
 	margin: 0 0 10px 0;
 }
-
 .centered-content p {
 	color: #6c757d;
 	font-size: 14px;
@@ -281,9 +397,6 @@ html {
 	background-color: #0056b3;
 	color: white;
 }
-#calendar-container .other-month {
-	color: #ccc;
-}
 #calendar-container .event-dot {
 	position: absolute;
 	bottom: 5px;
@@ -291,7 +404,7 @@ html {
 	transform: translateX(-50%);
 	width: 5px;
 	height: 5px;
-	background-color: #f37121; /* Oranye */
+	background-color: #f37121;
 	border-radius: 50%;
 }
 .calendar-header {
@@ -322,4 +435,380 @@ html {
 	background-color: #f37121;
 	border-radius: 50%;
 	margin-right: 8px;
+}
+
+/* =================================================================== */
+/* ================== STYLE HALAMAN JADWAL SEMESTER ================== */
+/* =================================================================== */
+
+/* Layout utama section jadwal */
+#jadwal.content-section {
+	padding: 30px 40px;
+}
+
+/* Jadwal Mingguan di Atas */
+.weekly-schedule-viewer {
+	margin-bottom: 30px;
+}
+.weekly-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+	border-bottom: 1px solid #e9ecef;
+}
+.weekly-header h3 {
+	margin: 0;
+	font-size: 16px;
+}
+.weekly-header span {
+	font-size: 14px;
+	color: #666;
+}
+.weekly-days {
+	display: flex;
+	justify-content: space-around;
+	padding: 15px 10px;
+}
+.day-item {
+	text-align: center;
+	padding: 10px;
+	border-radius: 8px;
+	width: 60px;
+}
+.day-item .day-name {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 5px;
+}
+.day-item .day-date {
+	font-size: 18px;
+	font-weight: 500;
+}
+.day-item.active {
+	background-color: #004a94;
+	color: white;
+}
+.day-item.active .day-name {
+	color: #e0e0e0;
+}
+
+/* Layout Utama Halaman Jadwal */
+.jadwal-content-wrapper {
+	display: flex;
+	gap: 30px;
+	align-items: flex-start;
+}
+.jadwal-sidebar {
+	flex: 1;
+}
+.jadwal-main-content {
+	flex: 2.5;
+}
+
+/* Sidebar "Perlu Dikerjakan" */
+.todo-item {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 15px;
+}
+.todo-item:last-child {
+	margin-bottom: 0;
+}
+.todo-icon {
+	background-color: #e7f1ff;
+	color: #0056b3;
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	flex-shrink: 0;
+}
+.todo-details h5 {
+	margin: 0 0 5px 0;
+	font-size: 14px;
+}
+.todo-details p {
+	margin: 0;
+	font-size: 12px;
+	color: #666;
+}
+
+/* Konten Utama "Kelas Akademik" */
+.kelas-akademik-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.tabs {
+	display: flex;
+	gap: 5px;
+	background-color: #e9ecef;
+	border-radius: 8px;
+	padding: 5px;
+}
+.tab-btn {
+	background: none;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 500;
+}
+.tab-btn.active {
+	background-color: #ffffff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	color: #004a94;
+}
+.btn-secondary {
+	background-color: #e9ecef;
+	border: 1px solid #ddd;
+	padding: 10px 15px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 500;
+}
+.filter-controls {
+	display: flex;
+	gap: 15px;
+	margin: 15px 0;
+}
+.search-input {
+	flex-grow: 1;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+.period-select {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+
+/* Grid untuk Kartu Kelas */
+.kelas-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+.kelas-card {
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.kelas-card.highlight {
+	border-left: 4px solid #0056b3;
+}
+.kelas-card-content {
+	padding: 15px;
+}
+.kelas-card h4 {
+	margin: 0 0 10px 0;
+	font-size: 15px;
+}
+.kelas-card .info-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: #555;
+	margin-bottom: 8px;
+}
+.progress-bar-container {
+	background-color: #e9ecef;
+	border-radius: 5px;
+	height: 10px;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.progress-bar-fill {
+	background-color: #0056b3;
+	height: 100%;
+	border-radius: 5px;
+}
+.kelas-card-footer {
+	background-color: #f8f9fa;
+	padding: 10px 15px;
+	font-size: 13px;
+	color: #0056b3;
+	font-weight: 500;
+	border-top: 1px solid #e0e0e0;
+}
+
+/* =================================================================== */
+/* ================== STYLE HALAMAN HASIL STUDI ====================== */
+/* =================================================================== */
+
+.hasil-studi-wrapper {
+	padding: 30px 40px;
+}
+.page-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.page-header h2 {
+	margin: 0;
+	font-size: 24px;
+}
+.btn-primary {
+	/* Mirip .btn tapi untuk aksi utama */
+	padding: 10px 20px;
+	background-color: #0056b3;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.btn-primary:hover {
+	background-color: #004494;
+}
+
+/* Kartu Ringkasan IPK & SKS */
+.summary-card {
+	display: flex;
+	margin-bottom: 30px;
+	padding: 25px 40px;
+}
+.summary-item {
+	flex: 1;
+	text-align: center;
+}
+.summary-item .label {
+	display: block;
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 8px;
+}
+.summary-item .value {
+	display: block;
+	font-size: 28px;
+	font-weight: 600;
+	color: #004a94;
+}
+.summary-divider {
+	width: 1px;
+	background-color: #e0e0e0;
+	margin: -25px 40px;
+}
+
+/* Tabel Hasil Studi */
+.hasil-studi-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+.hasil-studi-table th,
+.hasil-studi-table td {
+	padding: 15px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
+.hasil-studi-table th {
+	background-color: #f8f9fa;
+	font-size: 14px;
+	color: #333;
+}
+.hasil-studi-table td {
+	font-size: 14px;
+}
+.hasil-studi-table tfoot td {
+	font-weight: bold;
+	background-color: #f8f9fa;
+}
+
+/* =================================================================== */
+/* =================== STYLE HALAMAN BIODATA MAHASISWA =============== */
+/* =================================================================== */
+
+.biodata-wrapper {
+	padding: 30px 40px;
+}
+.biodata-content {
+	display: flex;
+	gap: 30px;
+	align-items: flex-start;
+}
+.biodata-sidebar {
+	flex: 1;
+}
+.biodata-main {
+	flex: 2.5;
+}
+.profile-pic-card {
+	padding: 30px;
+	text-align: center;
+}
+.profile-pic-card img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-bottom: 20px;
+	border: 4px solid #e9ecef;
+}
+.profile-pic-card h3 {
+	margin: 0 0 5px 0;
+	font-size: 18px;
+}
+.profile-pic-card p {
+	margin: 0;
+	color: #666;
+}
+
+/* Gaya untuk Tab di dalam card */
+.biodata-tabs {
+	display: flex;
+	border-bottom: 1px solid #e9ecef;
+	padding: 0 20px;
+}
+.tab-link-biodata {
+	padding: 15px 20px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	font-weight: 500;
+	color: #666;
+	border-bottom: 3px solid transparent;
+}
+.tab-link-biodata.active {
+	color: #004a94;
+	border-bottom-color: #004a94;
+}
+
+/* Konten Tab */
+.biodata-tab-content {
+	display: none;
+}
+.biodata-tab-content.active {
+	display: block;
+}
+
+/* Gaya untuk menampilkan data */
+.data-section {
+	display: flex;
+	flex-direction: column;
+}
+.data-item {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 0;
+	border-bottom: 1px solid #f1f1f1;
+}
+.data-item:last-child {
+	border-bottom: none;
+}
+.data-label {
+	font-weight: 500;
+	color: #555;
+}
+.data-value {
+	color: #333;
+	text-align: right;
 }

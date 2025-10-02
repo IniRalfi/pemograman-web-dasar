@@ -9,26 +9,56 @@
 </head>
 
 <body>
+    <!-- =================================================================== -->
+    <!-- ================== BAGIAN LOGIN (MODERN V2) ===================== -->
+    <!-- =================================================================== -->
+    <div id="login-section" class="login-wrapper-minimalist">
+        <!-- Form Login Minimalis -->
+        <form id="login-form" class="login-form-minimalist">
+            <div class="form-header">
+                <img src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_Untan.png" alt="Logo UNTAN" class="logo">
+                <h2>Selamat Datang</h2>
+                <p>Masuk ke Akun SIAKAD Anda</p>
+            </div>
 
-    <div id="login-section" class="login-container">
-        <form id="login-form" class="login-form">
-            <img src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_Untan.png" alt="Logo UNTAN" class="logo">
-            <h2>Sistem Informasi Akademik</h2>
-            <p>Silakan masuk dengan akun Anda</p>
-            <div class="form-group">
+            <div class="input-group">
+                <!-- Ikon User -->
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <input type="text" id="nim" name="nim" required placeholder=" ">
                 <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
-                <input type="text" id="nim" name="nim" required>
             </div>
-            <div class="form-group">
+
+            <div class="input-group">
+                <!-- Ikon Gembok -->
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input type="password" id="password" name="password" required placeholder=" ">
                 <label for="password">Kata Sandi</label>
-                <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn">Masuk</button>
+
             <p id="error-message" class="error-message"></p>
+
+            <button type="submit" class="btn-modern">Masuk</button>
+
+            <div class="form-footer">
+                <a href="#">Lupa Kata Sandi?</a>
+            </div>
         </form>
     </div>
 
+    <!-- =================================================================== -->
+    <!-- ================== CONTAINER APLIKASI UTAMA ======================= -->
+    <!-- =================================================================== -->
     <div id="app-container" class="hidden">
+
+        <!-- HEADER & NAVIGASI (TETAP SAMA UNTUK SEMUA HALAMAN) -->
         <header class="top-bar">
             <div class="logo-container">
                 <img src="https://i.imgur.com/8V3a2V0.png" alt="Logo Satu Untan">
@@ -45,67 +75,258 @@
 
         <nav class="main-nav">
             <ul>
-                <li><a href="#" class="active">Beranda</a></li>
-                <li><a href="#">Jadwal</a></li>
-                <li><a href="#">Akademik</a></li>
-                <li><a href="#">Tingkat Akhir</a></li>
-                <li><a href="#">Hasil Studi</a></li>
-            </ul>
+                <li><a href="#" class="nav-link active" data-target="beranda">Beranda</a></li>
+                <li><a href="#" class="nav-link" data-target="jadwal">Jadwal</a></li>
+                <li><a href="#" class="nav-link" data-target="hasil-studi">Hasil Studi</a></li>
+                <li><a href="#" class="nav-link" data-target="biodata">Biodata Mahasiswa</a></li>
         </nav>
 
-        <main class="main-content-wrapper">
-            <div class="content-left">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Jadwal Kuliah</h3>
-                        <div id="display-tanggal" class="date-display">
-                            Memuat tanggal...
+        <!-- =================================================================== -->
+        <!-- ======================= HALAMAN BERANDA =========================== -->
+        <!-- =================================================================== -->
+        <section id="beranda" class="content-section active">
+            <main class="main-content-wrapper">
+                <div class="content-left">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Jadwal Kuliah</h3>
+                            <div id="display-tanggal" class="date-display">
+                                Memuat tanggal...
+                            </div>
+                        </div>
+                        <div class="card-body centered-content">
+                            <img src="https://i.imgur.com/A6hD3sM.png" alt="Tidak ada jadwal" class="empty-state-img">
+                            <h4>Tidak ada jadwal kuliah saat ini</h4>
+                            <p>Istirahat dulu ya, tidak ada jadwal kuliah saat ini. Tapi jangan lupa, tetap belajar dan
+                                kerjakan tugas.</p>
                         </div>
                     </div>
-                    <div class="card-body centered-content">
-                        <img src="https://i.imgur.com/A6hD3sM.png" alt="Tidak ada jadwal" class="empty-state-img">
-                        <h4>Tidak ada jadwal kuliah saat ini</h4>
-                        <p>Istirahat dulu ya, tidak ada jadwal kuliah saat ini. Tapi jangan lupa, tetap belajar dan
-                            kerjakan tugas.</p>
+                </div>
+
+                <aside class="sidebar-right">
+                    <div class="card profile-card">
+                        <div class="profile-header">
+                            <img src="https://i.imgur.com/7DrtC6t.png" alt="Avatar Mahasiswa">
+                            <div class="profile-info">
+                                <h4>HAFI, RAFLI PRATAMA</h4>
+                                <p>Saat ini Anda berada di Semester 3 dengan IPK 3.96. <a href="#">Lihat detail</a></p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Total Tagihan</h3>
+                        </div>
+                        <div class="card-body centered-content">
+                            <img src="https://i.imgur.com/wB2b1La.png" alt="Tidak ada tagihan"
+                                class="empty-state-img small">
+                            <h4>Belum Ada Tagihan Baru</h4>
+                            <p>Terima kasih telah melunasi tagihan akademik di periode ini.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Kalender Akademik</h3>
+                        </div>
+                        <div id="calendar-container" class="card-body">
+                        </div>
+                        <div class="calendar-legend">
+                            <span class="dot"></span> Perkuliahan
+                        </div>
+                    </div>
+                </aside>
+            </main>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- ==================== HALAMAN JADWAL SEMESTER ====================== -->
+        <!-- =================================================================== -->
+        <section id="jadwal" class="content-section hidden">
+            <!-- Bagian Atas: Jadwal Mingguan -->
+            <div class="card weekly-schedule-viewer">
+                <div class="weekly-header">
+                    <h3>Jadwal Minggu Ini</h3>
+                    <span id="current-date-display-jadwal">Hari ini: Memuat...</span>
+                </div>
+                <div id="weekly-days-container" class="weekly-days">
+                    <!-- Hari akan di-generate oleh JavaScript -->
                 </div>
             </div>
 
-            <aside class="sidebar-right">
-                <div class="card profile-card">
-                    <div class="profile-header">
-                        <img src="https://i.imgur.com/7DrtC6t.png" alt="Avatar Mahasiswa">
-                        <div class="profile-info">
-                            <h4>HAFI, RAFLI PRATAMA</h4>
-                            <p>Saat ini Anda berada di Semester 3 dengan IPK 3.96. <a href="#">Lihat detail</a></p>
+            <!-- Wrapper Konten Utama Jadwal -->
+            <div class="jadwal-content-wrapper">
+                <!-- Kolom Kiri: Perlu Dikerjakan -->
+                <aside class="jadwal-sidebar">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Perlu Dikerjakan</h3>
+                        </div>
+                        <div id="todo-list-container" class="card-body">
+                            <!-- Daftar "To-Do" akan di-generate oleh JavaScript -->
                         </div>
                     </div>
+                </aside>
+
+                <!-- Kolom Kanan: Daftar Kelas -->
+                <main class="jadwal-main-content">
+                    <div class="kelas-akademik-header">
+                        <div class="tabs">
+                            <button class="tab-btn active">Kelas Akademik</button>
+                            <button class="tab-btn">Kelas Personal</button>
+                        </div>
+                        <button class="btn-secondary">Perbarui Data Kehadiran</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <p id="kelas-summary">Anda memiliki X kelas sesuai jadwal perkuliahan di SIAKAD pada periode
+                                ini</p>
+                            <div class="filter-controls">
+                                <input type="text"
+                                    placeholder="Cari berdasarkan mata kuliah, kode kelas, atau nama dosen"
+                                    class="search-input">
+                                <select id="period-selector" class="period-select">
+                                    <option value="semester-3">2025 Ganjil</option>
+                                    <option value="semester-2">2025 Genap</option>
+                                    <option value="semester-1">2024 Ganjil</option>
+                                </select>
+                            </div>
+                            <div id="kelas-grid-container" class="kelas-grid">
+                                <!-- Kartu-kartu kelas akan di-generate oleh JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- =================== HALAMAN HASIL STUDI =================== -->
+        <!-- =================================================================== -->
+
+        <section id="hasil-studi" class="content-section hidden">
+            <div class="hasil-studi-wrapper">
+                <div class="page-header">
+                    <h2>Transkrip Nilai</h2>
+                    <button class="btn-primary">Cetak KHS</button>
+                </div>
+
+                <div class="card summary-card">
+                    <div class="summary-item">
+                        <span class="label">Total SKS Ditempuh</span>
+                        <span id="summary-sks" class="value">Memuat...</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-item">
+                        <span class="label">Indeks Prestasi Kumulatif (IPK)</span>
+                        <span id="summary-ipk" class="value">Memuat...</span>
+                    </div>
                 </div>
 
                 <div class="card">
                     <div class="card-header">
-                        <h3>Total Tagihan</h3>
+                        <h3>Rincian Nilai per Semester</h3>
+                        <select id="semester-selector-hasil" class="period-select">
+                            <option value="semester-3">Semester 3</option>
+                            <option value="semester-2">Semester 2</option>
+                            <option value="semester-1">Semester 1</option>
+                        </select>
                     </div>
-                    <div class="card-body centered-content">
-                        <img src="https://i.imgur.com/wB2b1La.png" alt="Tidak ada tagihan"
-                            class="empty-state-img small">
-                        <h4>Belum Ada Tagihan Baru</h4>
-                        <p>Terima kasih telah melunasi tagihan akademik di periode ini.</p>
+                    <div class="card-body">
+                        <div id="hasil-studi-table-container"></div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- =================== HALAMAN BIODATA MAHASISWA =================== -->
+        <!-- =================================================================== -->
+        <section id="biodata" class="content-section hidden">
+            <div class="biodata-wrapper">
+                <div class="page-header">
+                    <h2>Biodata Mahasiswa</h2>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Kalender Akademik</h3>
-                    </div>
-                    <div id="calendar-container" class="card-body">
-                    </div>
-                    <div class="calendar-legend">
-                        <span class="dot"></span> Perkuliahan
-                    </div>
+                <div class="biodata-content">
+                    <!-- Kolom Kiri: Foto Profil -->
+                    <aside class="biodata-sidebar">
+                        <div class="card profile-pic-card">
+                            <img src="https://i.imgur.com/7DrtC6t.png" alt="Foto Profil Mahasiswa">
+                            <h3 id="bio-nama-display">Memuat...</h3>
+                            <p id="bio-nim-display">Memuat...</p>
+                        </div>
+                    </aside>
+
+                    <!-- Kolom Kanan: Data Rinci -->
+                    <main class="biodata-main">
+                        <div class="card">
+                            <!-- Navigasi Tab di dalam Card -->
+                            <div class="biodata-tabs">
+                                <button class="tab-link-biodata active" data-tab="pribadi">Data Pribadi</button>
+                                <button class="tab-link-biodata" data-tab="akademik">Data Akademik</button>
+                                <button class="tab-link-biodata" data-tab="ortu">Data Orang Tua</button>
+                            </div>
+
+                            <!-- Konten untuk setiap Tab -->
+                            <div class="card-body">
+                                <!-- Tab Konten: Data Pribadi -->
+                                <div id="tab-pribadi" class="biodata-tab-content active">
+                                    <div class="data-section">
+                                        <div class="data-item"><span class="data-label">Nama Lengkap</span><span
+                                                class="data-value" id="bio-nama-lengkap"></span></div>
+                                        <div class="data-item"><span class="data-label">Jenis Kelamin</span><span
+                                                class="data-value" id="bio-jenis-kelamin"></span></div>
+                                        <div class="data-item"><span class="data-label">Tempat, Tanggal
+                                                Lahir</span><span class="data-value" id="bio-ttl"></span></div>
+                                        <div class="data-item"><span class="data-label">Agama</span><span
+                                                class="data-value" id="bio-agama"></span></div>
+                                        <div class="data-item"><span class="data-label">Alamat Email</span><span
+                                                class="data-value" id="bio-email"></span></div>
+                                        <div class="data-item"><span class="data-label">Nomor HP</span><span
+                                                class="data-value" id="bio-hp"></span></div>
+                                    </div>
+                                </div>
+                                <!-- Tab Konten: Data Akademik -->
+                                <div id="tab-akademik" class="biodata-tab-content">
+                                    <div class="data-section">
+                                        <div class="data-item"><span class="data-label">NIM</span><span
+                                                class="data-value" id="bio-nim-akademik"></span></div>
+                                        <div class="data-item"><span class="data-label">Program Studi</span><span
+                                                class="data-value" id="bio-prodi"></span></div>
+                                        <div class="data-item"><span class="data-label">Fakultas</span><span
+                                                class="data-value" id="bio-fakultas"></span></div>
+                                        <div class="data-item"><span class="data-label">Tahun Masuk</span><span
+                                                class="data-value" id="bio-tahun-masuk"></span></div>
+                                        <div class="data-item"><span class="data-label">Status Mahasiswa</span><span
+                                                class="data-value" id="bio-status"></span></div>
+                                        <div class="data-item"><span class="data-label">Dosen Pembimbing</span><span
+                                                class="data-value" id="bio-dosen-pa"></span></div>
+                                    </div>
+                                </div>
+                                <!-- Tab Konten: Data Orang Tua -->
+                                <div id="tab-ortu" class="biodata-tab-content">
+                                    <div class="data-section">
+                                        <div class="data-item"><span class="data-label">Nama Ayah</span><span
+                                                class="data-value" id="bio-nama-ayah"></span></div>
+                                        <div class="data-item"><span class="data-label">Pekerjaan Ayah</span><span
+                                                class="data-value" id="bio-pekerjaan-ayah"></span></div>
+                                        <div class="data-item"><span class="data-label">Nama Ibu</span><span
+                                                class="data-value" id="bio-nama-ibu"></span></div>
+                                        <div class="data-item"><span class="data-label">Pekerjaan Ibu</span><span
+                                                class="data-value" id="bio-pekerjaan-ibu"></span></div>
+                                        <div class="data-item"><span class="data-label">Alamat Orang Tua</span><span
+                                                class="data-value" id="bio-alamat-ortu"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
                 </div>
-            </aside>
-        </main>
+            </div>
+        </section>
     </div>
 
     <script src="script.js"></script>
