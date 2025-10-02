@@ -1,0 +1,325 @@
+/* ================== GENERAL & LOGIN STYLES (DARI SEBELUMNYA) ================== */
+body,
+html {
+	margin: 0;
+	padding: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f4f7f6;
+	height: 100%;
+}
+
+.hidden {
+	display: none !important; /* Penting untuk menyembunyikan elemen */
+}
+
+.login-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form {
+	background-color: #ffffff;
+	padding: 40px;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+}
+
+.logo {
+	width: 80px;
+	margin-bottom: 20px;
+}
+/* (Tambahkan sisa style login form dari kode sebelumnya di sini jika perlu) */
+.login-form h2,
+.login-form p,
+.form-group,
+.btn,
+.error-message {
+	/* (Style ini sama seperti sebelumnya) */
+	margin-bottom: 15px;
+}
+.form-group input {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.btn {
+	width: 100%;
+	padding: 12px;
+	background-color: #0056b3;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: #004494;
+}
+.error-message {
+	color: #d93025;
+	font-weight: bold;
+	min-height: 20px;
+}
+
+/* ================== APP DASHBOARD STYLES (DESAIN BARU) ================== */
+
+#app-container {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #f0f2f5; /* Background abu-abu muda */
+}
+
+/* Header Atas */
+.top-bar {
+	background-color: #004a94; /* Biru tua UNTAN */
+	color: white;
+	padding: 10px 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+}
+
+.logo-container img {
+	height: 40px;
+	margin-right: 15px;
+}
+
+.logo-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-text span {
+	font-size: 14px;
+	line-height: 1;
+}
+
+.logo-text strong {
+	font-size: 18px;
+	line-height: 1;
+}
+
+.user-actions {
+	font-size: 24px;
+	display: flex;
+	gap: 20px;
+}
+
+/* Navigasi Utama */
+.main-nav {
+	background-color: #ffffff;
+	padding: 0 40px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+}
+
+.main-nav a {
+	display: block;
+	padding: 15px 20px;
+	text-decoration: none;
+	color: #555;
+	font-weight: 500;
+	border-bottom: 3px solid transparent;
+}
+
+.main-nav a:hover {
+	color: #004a94;
+}
+
+.main-nav a.active {
+	border-bottom-color: #004a94;
+	color: #004a94;
+}
+
+/* Wrapper Konten Utama */
+.main-content-wrapper {
+	display: flex;
+	gap: 30px;
+	padding: 30px 40px;
+	align-items: flex-start; /* Konten atas sejajar */
+}
+
+.content-left {
+	flex: 2.5; /* Lebar 2.5 bagian */
+}
+
+.sidebar-right {
+	flex: 1; /* Lebar 1 bagian */
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+/* Gaya Kartu (Card) yang diperbarui */
+.card {
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	border: 1px solid #e0e0e0;
+}
+
+.card-header {
+	padding: 15px 20px;
+	border-bottom: 1px solid #e9ecef;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card-header h3 {
+	margin: 0;
+	font-size: 16px;
+}
+
+.date-display {
+	font-size: 14px;
+	color: #666;
+}
+
+.card-body {
+	padding: 20px;
+}
+
+.centered-content {
+	text-align: center;
+	padding: 30px;
+}
+
+.empty-state-img {
+	max-width: 200px;
+	margin-bottom: 20px;
+}
+.empty-state-img.small {
+	max-width: 100px;
+}
+
+.centered-content h4 {
+	margin: 0 0 10px 0;
+}
+
+.centered-content p {
+	color: #6c757d;
+	font-size: 14px;
+	margin: 0;
+	max-width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Kartu Profil */
+.profile-card .profile-header {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 20px;
+}
+.profile-card img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.profile-card h4 {
+	font-size: 16px;
+	margin: 0 0 5px 0;
+}
+.profile-card p {
+	font-size: 14px;
+	color: #666;
+	margin: 0;
+}
+.profile-card a {
+	color: #0056b3;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+/* Kalender */
+#calendar-container table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+#calendar-container th {
+	font-weight: 500;
+	color: #999;
+	font-size: 12px;
+	padding-bottom: 10px;
+}
+#calendar-container td {
+	padding: 5px;
+	font-size: 14px;
+	position: relative;
+	height: 30px;
+}
+#calendar-container .day-number {
+	width: 28px;
+	height: 28px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	margin: auto;
+}
+#calendar-container .day-number.today {
+	background-color: #0056b3;
+	color: white;
+}
+#calendar-container .other-month {
+	color: #ccc;
+}
+#calendar-container .event-dot {
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 5px;
+	height: 5px;
+	background-color: #f37121; /* Oranye */
+	border-radius: 50%;
+}
+.calendar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5px 15px 5px;
+}
+.calendar-header button {
+	background: none;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+.calendar-header span {
+	font-weight: 500;
+}
+.calendar-legend {
+	font-size: 12px;
+	padding: 10px 20px;
+	border-top: 1px solid #e9ecef;
+	display: flex;
+	align-items: center;
+}
+.calendar-legend .dot {
+	width: 8px;
+	height: 8px;
+	background-color: #f37121;
+	border-radius: 50%;
+	margin-right: 8px;
+}

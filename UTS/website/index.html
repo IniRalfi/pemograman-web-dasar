@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAKAD UNTAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="login-section" class="login-container">
+        <form id="login-form" class="login-form">
+            <img src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_Untan.png" alt="Logo UNTAN" class="logo">
+            <h2>Sistem Informasi Akademik</h2>
+            <p>Silakan masuk dengan akun Anda</p>
+            <div class="form-group">
+                <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
+                <input type="text" id="nim" name="nim" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Masuk</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
+
+    <div id="app-container" class="hidden">
+        <header class="top-bar">
+            <div class="logo-container">
+                <img src="https://i.imgur.com/8V3a2V0.png" alt="Logo Satu Untan">
+                <div class="logo-text">
+                    <span>SIM Akademik</span>
+                    <strong>Universitas Tanjungpura</strong>
+                </div>
+            </div>
+            <div class="user-actions">
+                <span class="user-icon">🔔</span>
+                <span class="user-icon">👤</span>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active">Beranda</a></li>
+                <li><a href="#">Jadwal</a></li>
+                <li><a href="#">Akademik</a></li>
+                <li><a href="#">Tingkat Akhir</a></li>
+                <li><a href="#">Hasil Studi</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content-wrapper">
+            <div class="content-left">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Jadwal Kuliah</h3>
+                        <div id="display-tanggal" class="date-display">
+                            Memuat tanggal...
+                        </div>
+                    </div>
+                    <div class="card-body centered-content">
+                        <img src="https://i.imgur.com/A6hD3sM.png" alt="Tidak ada jadwal" class="empty-state-img">
+                        <h4>Tidak ada jadwal kuliah saat ini</h4>
+                        <p>Istirahat dulu ya, tidak ada jadwal kuliah saat ini. Tapi jangan lupa, tetap belajar dan
+                            kerjakan tugas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="sidebar-right">
+                <div class="card profile-card">
+                    <div class="profile-header">
+                        <img src="https://i.imgur.com/7DrtC6t.png" alt="Avatar Mahasiswa">
+                        <div class="profile-info">
+                            <h4>HAFI, RAFLI PRATAMA</h4>
+                            <p>Saat ini Anda berada di Semester 3 dengan IPK 3.96. <a href="#">Lihat detail</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Total Tagihan</h3>
+                    </div>
+                    <div class="card-body centered-content">
+                        <img src="https://i.imgur.com/wB2b1La.png" alt="Tidak ada tagihan"
+                            class="empty-state-img small">
+                        <h4>Belum Ada Tagihan Baru</h4>
+                        <p>Terima kasih telah melunasi tagihan akademik di periode ini.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Kalender Akademik</h3>
+                    </div>
+                    <div id="calendar-container" class="card-body">
+                    </div>
+                    <div class="calendar-legend">
+                        <span class="dot"></span> Perkuliahan
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

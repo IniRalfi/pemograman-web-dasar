@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Website Menu Restoran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Restoran Lezat</h1>
+        <p>Selamat datang di website resmi restoran kami</p>
+    </header>
+
+    <!-- Layout utama -->
+    <div class="container">
+        <!-- Sidebar Menu -->
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Daftar Menu</a></li>
+                <li><a href="#">Promo</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+
+            <!-- Form tambah menu -->
+            <div class="form-box">
+                <h3>Tambah Menu</h3>
+                <label for="title">Nama Menu:</label>
+                <input type="text" id="title" placeholder="contoh: Bakso">
+
+                <label for="desc">Deskripsi:</label>
+                <textarea id="desc" rows="2" placeholder="contoh: Bakso kuah segar"></textarea>
+
+                <label for="price">Harga:</label>
+                <input type="text" id="price" placeholder="contoh: Rp 18.000">
+
+                <button id="addMenu">Tambah</button>
+            </div>
+        </nav>
+
+        <!-- Konten utama -->
+        <main>
+            <h2>Daftar Menu</h2>
+            <div id="menu-container"></div>
+
+            <div id="detail">
+                <h2 id="detail-title"></h2>
+                <p id="detail-desc"></p>
+                <p><strong id="detail-price"></strong></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Restoran Lezat | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

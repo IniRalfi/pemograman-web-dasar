@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAKAD UNTAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="login-section" class="login-container">
+        <form id="login-form" class="login-form">
+            <img src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_Untan.png" alt="Logo UNTAN" class="logo">
+            <h2>Sistem Informasi Akademik</h2>
+            <p>Silakan masuk dengan akun Anda</p>
+            <div class="form-group">
+                <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
+                <input type="text" id="nim" name="nim" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Masuk</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
+
+    <div id="app-container" class="hidden">
+        <header class="app-header">
+            <h1>SIAKAD UNTAN</h1>
+            <div class="user-profile">
+                <span>Halo, Mahasiswa!</span>
+                <button id="logout-btn" class="btn-logout">Keluar</button>
+            </div>
+        </header>
+
+        <div class="app-body">
+            <nav class="app-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-target="beranda">Beranda</a></li>
+                    <li><a href="#" class="nav-link" data-target="jadwal">Jadwal Semester</a></li>
+                    <li><a href="#" class="nav-link" data-target="hasil">Hasil Studi</a></li>
+                    <li><a href="#" class="nav-link" data-target="biodata">Biodata Mahasiswa</a></li>
+                </ul>
+            </nav>
+
+            <main class="app-content">
+                <section id="beranda" class="content-section active">
+                    <h2>Beranda</h2>
+                    <div class="card greeting-card">
+                        <h3>Selamat Datang Kembali!</h3>
+                        <p>Semoga harimu menyenangkan dan perkuliahanmu lancar.</p>
+                    </div>
+                    <div class="content-grid">
+                        <div class="card">
+                            <h3>Jadwal Kuliah Hari Ini</h3>
+                            <div id="jadwal-hari-ini">
+                                <p>Memuat jadwal...</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3>Kalender Akademik</h3>
+                            <ul>
+                                <li><strong>01 Sep 2025:</strong> Awal Perkuliahan Semester Ganjil</li>
+                                <li><strong>25-29 Nov 2025:</strong> Ujian Tengah Semester (UTS)</li>
+                                <li><strong>20-24 Jan 2026:</strong> Ujian Akhir Semester (UAS)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="jadwal" class="content-section hidden">
+                    <h2>Jadwal Semester</h2>
+                    <p>Konten untuk jadwal semester akan kita buat di sini selanjutnya.</p>
+                </section>
+
+                <section id="hasil" class="content-section hidden">
+                    <h2>Hasil Studi</h2>
+                    <p>Konten untuk hasil studi akan kita buat di sini selanjutnya.</p>
+                </section>
+
+                <section id="biodata" class="content-section hidden">
+                    <h2>Biodata Mahasiswa</h2>
+                    <p>Konten untuk biodata mahasiswa akan kita buat di sini selanjutnya.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
