@@ -16,17 +16,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- DATA MATA KULIAH UNTUK HALAMAN JADWAL ---
     const allCourses = {
         'semester-3': [
-            { title: 'Praktikum Pemrograman Web Dasar', class: 'B', lecturers: ['Ferdi Febriyanto, S.Kom, M.Kom'], schedule: 'Kamis, 10:00 - 13:10', attendance: 7, totalSessions: 16, highlight: true },
-            { title: 'Kewarganegaraan', class: 'A', lecturers: ['Dr. Ir. H. FEIRA BUDIANSYAH ARIEF, M.SI,PM, ASEAN Eng', 'dan 1 lainnya'], schedule: 'Senin, 13:30 - 15:10', attendance: 7, totalSessions: 16, highlight: false },
-            { title: 'Kewirausahaan Teknologi Informasi', class: 'B', lecturers: ['IBNUR RUSDI, S.Kom, M.M.'], schedule: 'Kamis, 13:30 - 15:10', attendance: 6, totalSessions: 16, highlight: true },
-            { title: 'Manajemen Rantai Pasok', class: 'A', lecturers: ['NURUL MUTIAH, S.T., M.T'], schedule: 'Jumat, 07:30 - 10:00', attendance: 6, totalSessions: 16, highlight: false },
-            { title: 'Basis Data', class: 'A', lecturers: ['Syahru Rahmadyanda, S.Kom., M.Kom'], schedule: 'Senin, 10:20 - 12:50', attendance: 8, totalSessions: 16, highlight: false },
+            { title: 'Kewarganegaraan', class: 'A', lecturers: ['SYARIF REDHA FACHMI AL QADRIE, S.IP,M.A', 'Dr. Ir. H. FEIRA BUDIANSYAH ARIEF, M.SI,PM,ASEAN Eng'], schedule: 'Senin, 13:30 - 15:10', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Pemrograman Web Dasar', class: 'A', lecturers: ['Ferdy Febriyanto, S.Kom, M.Kom'], schedule: 'Senin, 08:20 - 10:00', attendance: 15, totalSessions: 16, highlight: true },
+            { title: 'Praktikum Pemrograman Web Dasar', class: 'B', lecturers: ['Ferdy Febriyanto, S.Kom, M.Kom'], schedule: 'Kamis, 10:20 - 13:10', attendance: 16, totalSessions: 16, highlight: true },
+            { title: 'Manajemen Rantai Pasok', class: 'A', lecturers: ['NURUL MUTIAH, S.T.,M.T'], schedule: 'Jumat, 07:30 - 10:00', attendance: 13, totalSessions: 16, highlight: false },
+            { title: 'Manajemen Proyek SI', class: 'A', lecturers: ['NURUL MUTIAH, S.T.,M.T', 'RIFQI ANUGRAH, S.KOM., M.KOM.'], schedule: 'Selasa, 07:30 - 09:10', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Rekayasa Perangkat Lunak', class: 'B', lecturers: ['RENNY PUSPITA SARI, S.T.,M.T.', 'Dimas Sigit Prasetio, S.Kom.'], schedule: 'Rabu, 07:30 - 10:00', attendance: 15, totalSessions: 16, highlight: false },
+            { title: 'Basis Data', class: 'A', lecturers: ['Syahru Rahmayuda, S.Kom, M.Kom'], schedule: 'Senin, 10:20 - 12:50', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Pemrograman Berorientasi Objek', class: 'B', lecturers: ['DIAN PRAWIRA, S.T.,M.Eng.'], schedule: 'Rabu, 13:30 - 15:10', attendance: 16, totalSessions: 16, highlight: false },
+            { title: 'Praktikum Pemrograman Berorientasi Objek', class: 'B', lecturers: ['DIAN PRAWIRA, S.T.,M.Eng.'], schedule: 'Jumat, 13:30 - 16:20', attendance: 15, totalSessions: 16, highlight: true },
+            { title: 'Kewirausahaan Teknologi Informasi', class: 'B', lecturers: ['IBNUR RUSDI, S.Kom., M.M.'], schedule: 'Kamis, 13:30 - 15:10', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Manajemen Pengetahuan', class: 'B', lecturers: ['IBNUR RUSDI, S.Kom., M.M.'], schedule: 'Selasa, 13:30 - 16:00', attendance: 15, totalSessions: 16, highlight: false },
         ],
         'semester-2': [
-            { title: 'Struktur Data', class: 'A', lecturers: ['Prof. Alan Turing'], schedule: 'Selasa, 08:00 - 09:40', attendance: 15, totalSessions: 16, highlight: false },
+            { title: 'Statistika dan Probabilitas', class: 'A', lecturers: ['DR YUNDARI, M.Sc.', 'YUYUN EKA PRATIWI, S.Si, M.Aktr'], schedule: 'Jumat, 07:30 - 10:00', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Algoritma dan Struktur Data', class: 'A', lecturers: ['ILHAMSYAH, S.Si, M.Cs.'], schedule: 'Rabu, 07:30 - 09:10', attendance: 15, totalSessions: 16, highlight: true },
+            { title: 'Praktikum Algoritma dan Struktur Data', class: 'A', lecturers: ['ILHAMSYAH, S.Si, M.Cs.'], schedule: 'Kamis, 13:30 - 16:20', attendance: 16, totalSessions: 16, highlight: true },
+            { title: 'Desain dan Manajemen Jaringan', class: 'A', lecturers: ['Ferdi Febriyanto, S.Kom, M.Kom'], schedule: 'Kamis, 10:20 - 12:50', attendance: 13, totalSessions: 16, highlight: false },
+            { title: 'Manajemen Hubungan Pelanggan', class: 'A', lecturers: ['NURUL MUTIAH, S.T., M.T'], schedule: 'Kamis, 07:30 - 09:10', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Perancangan UI/UX', class: 'A', lecturers: ['IBNUR RUSDI, S.Kom, M.M.'], schedule: 'Selasa, 10:20 - 12:00', attendance: 15, totalSessions: 16, highlight: false },
+            { title: 'Analisis dan Perancangan Sistem Informasi', class: 'A', lecturers: ['RENNY PUSPITA SARI, S.T., M.T.'], schedule: 'Rabu, 10:20 - 12:50', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Agama', class: 'A-ISL', lecturers: ['BUSTAMI, M. Pd'], schedule: 'Senin, 07:30 - 10:00', attendance: 16, totalSessions: 16, highlight: false },
+            { title: 'PANCASILA', class: 'A', lecturers: ['Riani Septi Hartini, S.H., M.H.'], schedule: 'Senin, 10:20 - 12:00', attendance: 15, totalSessions: 16, highlight: false },
         ],
         'semester-1': [
-            { title: 'Kalkulus I', class: 'C', lecturers: ['Dr. John Doe'], schedule: 'Senin, 10:00 - 11:40', attendance: 8, totalSessions: 8, highlight: false },
+            { title: 'Aljabar Linear', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Selasa, 10:20 - 12:00', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Pemrograman Komputer', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Rabu, 13:30 - 15:00', attendance: 15, totalSessions: 16, highlight: true },
+            { title: 'Praktikum Pemrograman Komputer', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Jumat, 13:30 - 16:20', attendance: 16, totalSessions: 16, highlight: true },
+            { title: 'Manajemen dan Organisasi', class: 'B', lecturers: ['Dosen Pengampu'], schedule: 'Rabu, 07:30 - 10:00', attendance: 13, totalSessions: 16, highlight: false },
+            { title: 'Manajemen Proses Bisnis', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Kamis, 08:20 - 10:00', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Pengantar Teknologi dan Sistem Informasi', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Selasa, 07:30 - 10:00', attendance: 15, totalSessions: 16, highlight: false },
+            { title: 'Bahasa Indonesia', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Senin, 12:30 - 15:00', attendance: 14, totalSessions: 16, highlight: false },
+            { title: 'Matematika', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Jumat, 07:30 - 10:00', attendance: 16, totalSessions: 16, highlight: false },
+            { title: 'Bahasa Inggris', class: 'A', lecturers: ['Dosen Pengampu'], schedule: 'Senin, 10:20 - 12:00', attendance: 15, totalSessions: 16, highlight: false },
         ]
     };
 
@@ -38,23 +60,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- DATA NILAI UNTUK HALAMAN HASIL STUDI ---
     const dataNilai = {
         'semester-3': [
-            { kode: 'IF303', mk: 'Pemrograman Web', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 }, { kode: 'IF301', mk: 'Jaringan Komputer', sks: 3, nilaiHuruf: 'A-', nilaiAngka: 3.75 }, { kode: 'IF302', mk: 'Sistem Operasi', sks: 3, nilaiHuruf: 'B+', nilaiAngka: 3.50 }, { kode: 'IF304', mk: 'Kecerdasan Buatan', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'MKWK3', mk: 'Kewarganegaraan', sks: 2, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'SI-3014', mk: 'Pemrograman Web Dasar', sks: 2, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'SI-3015', mk: 'Praktikum Pemrograman Web Dasar', sks: 1, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'SI-3016', mk: 'Manajemen Rantai Pasok', sks: 3, nilaiHuruf: 'B', nilaiAngka: 3.00 },
+            { kode: 'SI-3017', mk: 'Manajemen Proyek SI', sks: 2, nilaiHuruf: 'B+', nilaiAngka: 3.50 },
+            { kode: 'SI-3018', mk: 'Rekayasa Perangkat Lunak', sks: 3, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'SI-3019', mk: 'Basis Data', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'SI-3020', mk: 'Pemrograman Berorientasi Objek', sks: 2, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'SI-3021', mk: 'Praktikum Pemrograman Berorientasi Objek', sks: 1, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'SI-3022', mk: 'Kewirausahaan Teknologi Informasi', sks: 2, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'SI-5031', mk: 'Manajemen Pengetahuan', sks: 3, nilaiHuruf: 'B+', nilaiAngka: 3.50 },
         ],
         'semester-2': [
-            { kode: 'IF201', mk: 'Kalkulus II', sks: 3, nilaiHuruf: 'B', nilaiAngka: 3.00 }, { kode: 'IF202', mk: 'Struktur Data', sks: 4, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-211', mk: 'Statistika dan Probabilitas', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-242', mk: 'Algoritma dan Struktur Data', sks: 2, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-243', mk: 'Praktikum Algoritma dan Struktur Data', sks: 1, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-250', mk: 'Desain dan Manajemen Jaringan', sks: 3, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'IKSI-262', mk: 'Manajemen Hubungan Pelanggan', sks: 2, nilaiHuruf: 'B+', nilaiAngka: 3.50 },
+            { kode: 'IKSI-280', mk: 'Perancangan UI/UX', sks: 2, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-281', mk: 'Analisis dan Perancangan Sistem Informasi', sks: 3, nilaiHuruf: 'B+', nilaiAngka: 3.50 },
+            { kode: 'MKWU1', mk: 'Agama', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'MKWU2', mk: 'PANCASILA', sks: 2, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            
         ],
         'semester-1': [
-            { kode: 'IF101', mk: 'Kalkulus I', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 }, { kode: 'IF103', mk: 'Dasar Pemrograman', sks: 4, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'IKSI-110', mk: 'Aljabar Linear', sks: 2, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-140', mk: 'Pemrograman Komputer', sks: 2, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'IKSI-141', mk: 'Praktikum Pemrograman Komputer', sks: 1, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'IKSI-160', mk: 'Manajemen dan Organisasi', sks: 3, nilaiHuruf: 'B', nilaiAngka: 3.00 },
+            { kode: 'IKSI-161', mk: 'Manajemen Proses Bisnis', sks: 2, nilaiHuruf: 'B+', nilaiAngka: 3.50 },
+            { kode: 'IKSI-170', mk: 'Pengantar Teknologi dan Sistem Informasi', sks: 3, nilaiHuruf: 'A-', nilaiAngka: 3.75 },
+            { kode: 'MKWU41K', mk: 'Bahasa Indonesia', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'MPU-101', mk: 'Matematika', sks: 3, nilaiHuruf: 'A', nilaiAngka: 4.00 },
+            { kode: 'UMG-105', mk: 'Bahasa Inggris', sks: 2, nilaiHuruf: 'A', nilaiAngka: 4.00 },
         ]
     };
 
     // --- DATA BIODATA MAHASISWA ---
     const dataMahasiswa = {
         pribadi: {
-            namaLengkap: 'HAFI, RAFLI PRATAMA', nim: 'H1D022050', jenisKelamin: 'Laki-laki', ttl: 'Pontianak, 1 Januari 2003', agama: 'Islam', email: 'hafiz@student.untan.ac.id', hp: '081234567890'
+            namaLengkap: 'RAFLI PRATAMA', nim: 'H11101241008', jenisKelamin: 'Laki-laki', ttl: 'Pontianak, 20 Desember 2005', agama: 'Islam', email: 'h1101241008@student.untan.ac.id', hp: '081234567890'
         },
         akademik: {
-            prodi: 'S1 - Sistem Informasi', fakultas: 'Teknik', tahunMasuk: '2022', status: 'Aktif', dosenPa: 'Ferdi Febriyanto, S.Kom, M.Kom'
+            prodi: 'S1 - Sistem Informasi', fakultas: 'MIPA', tahunMasuk: '2024', status: 'Aktif', dosenPa: 'Renny Puspita Sari, S.T, M.T'
         },
         orangTua: {
             namaAyah: 'Budi Santoso', pekerjaanAyah: 'Wiraswasta', namaIbu: 'Siti Aminah', pekerjaanIbu: 'Ibu Rumah Tangga', alamat: 'Jl. Merdeka No. 10, Pontianak, Kalimantan Barat'

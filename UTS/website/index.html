@@ -16,7 +16,7 @@
         <!-- Form Login Minimalis -->
         <form id="login-form" class="login-form-minimalist">
             <div class="form-header">
-                <img src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_Untan.png" alt="Logo UNTAN" class="logo">
+                <img src="assets/logo_siakad.png" alt="Logo UNTAN" class="logo">
                 <h2>Selamat Datang</h2>
                 <p>Masuk ke Akun SIAKAD Anda</p>
             </div>
@@ -61,7 +61,7 @@
         <!-- HEADER & NAVIGASI (TETAP SAMA UNTUK SEMUA HALAMAN) -->
         <header class="top-bar">
             <div class="logo-container">
-                <img src="https://i.imgur.com/8V3a2V0.png" alt="Logo Satu Untan">
+                <img src="assets/logo_siakad.png" alt="Logo Satu Untan">
                 <div class="logo-text">
                     <span>SIM Akademik</span>
                     <strong>Universitas Tanjungpura</strong>
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="card-body centered-content">
-                            <img src="https://i.imgur.com/A6hD3sM.png" alt="Tidak ada jadwal" class="empty-state-img">
+                            <img src="assets/takdajadwal.png" alt="Tidak ada jadwal" class="empty-state-img">
                             <h4>Tidak ada jadwal kuliah saat ini</h4>
                             <p>Istirahat dulu ya, tidak ada jadwal kuliah saat ini. Tapi jangan lupa, tetap belajar dan
                                 kerjakan tugas.</p>
@@ -106,7 +106,7 @@
                 <aside class="sidebar-right">
                     <div class="card profile-card">
                         <div class="profile-header">
-                            <img src="https://i.imgur.com/7DrtC6t.png" alt="Avatar Mahasiswa">
+                            <img src="assets/avatar.png" alt="Avatar Mahasiswa">
                             <div class="profile-info">
                                 <h4>HAFI, RAFLI PRATAMA</h4>
                                 <p>Saat ini Anda berada di Semester 3 dengan IPK 3.96. <a href="#">Lihat detail</a></p>
@@ -155,21 +155,17 @@
                 </div>
             </div>
 
-            <!-- Wrapper Konten Utama Jadwal -->
             <div class="jadwal-content-wrapper">
-                <!-- Kolom Kiri: Perlu Dikerjakan -->
                 <aside class="jadwal-sidebar">
                     <div class="card">
                         <div class="card-header">
                             <h3>Perlu Dikerjakan</h3>
                         </div>
                         <div id="todo-list-container" class="card-body">
-                            <!-- Daftar "To-Do" akan di-generate oleh JavaScript -->
                         </div>
                     </div>
                 </aside>
 
-                <!-- Kolom Kanan: Daftar Kelas -->
                 <main class="jadwal-main-content">
                     <div class="kelas-akademik-header">
                         <div class="tabs">
@@ -189,12 +185,11 @@
                                     class="search-input">
                                 <select id="period-selector" class="period-select">
                                     <option value="semester-3">2025 Ganjil</option>
-                                    <option value="semester-2">2025 Genap</option>
+                                    <option value="semester-2">2024 Genap</option>
                                     <option value="semester-1">2024 Ganjil</option>
                                 </select>
                             </div>
                             <div id="kelas-grid-container" class="kelas-grid">
-                                <!-- Kartu-kartu kelas akan di-generate oleh JavaScript -->
                             </div>
                         </div>
                     </div>
@@ -251,28 +246,28 @@
                 </div>
 
                 <div class="biodata-content">
-                    <!-- Kolom Kiri: Foto Profil -->
+
                     <aside class="biodata-sidebar">
                         <div class="card profile-pic-card">
-                            <img src="https://i.imgur.com/7DrtC6t.png" alt="Foto Profil Mahasiswa">
+                            <img src="assets/avatar.png" alt="Foto Profil Mahasiswa">
                             <h3 id="bio-nama-display">Memuat...</h3>
                             <p id="bio-nim-display">Memuat...</p>
                         </div>
                     </aside>
 
-                    <!-- Kolom Kanan: Data Rinci -->
+
                     <main class="biodata-main">
                         <div class="card">
-                            <!-- Navigasi Tab di dalam Card -->
+
                             <div class="biodata-tabs">
                                 <button class="tab-link-biodata active" data-tab="pribadi">Data Pribadi</button>
                                 <button class="tab-link-biodata" data-tab="akademik">Data Akademik</button>
                                 <button class="tab-link-biodata" data-tab="ortu">Data Orang Tua</button>
                             </div>
 
-                            <!-- Konten untuk setiap Tab -->
+
                             <div class="card-body">
-                                <!-- Tab Konten: Data Pribadi -->
+
                                 <div id="tab-pribadi" class="biodata-tab-content active">
                                     <div class="data-section">
                                         <div class="data-item"><span class="data-label">Nama Lengkap</span><span
@@ -289,7 +284,7 @@
                                                 class="data-value" id="bio-hp"></span></div>
                                     </div>
                                 </div>
-                                <!-- Tab Konten: Data Akademik -->
+
                                 <div id="tab-akademik" class="biodata-tab-content">
                                     <div class="data-section">
                                         <div class="data-item"><span class="data-label">NIM</span><span
@@ -306,7 +301,7 @@
                                                 class="data-value" id="bio-dosen-pa"></span></div>
                                     </div>
                                 </div>
-                                <!-- Tab Konten: Data Orang Tua -->
+
                                 <div id="tab-ortu" class="biodata-tab-content">
                                     <div class="data-section">
                                         <div class="data-item"><span class="data-label">Nama Ayah</span><span
