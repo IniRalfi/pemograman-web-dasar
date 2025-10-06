@@ -1,7 +1,13 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+
+// [ID] Impor file CSS utama dari Bootstrap
+// [EN] Import Bootstrap's core CSS file
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// [ID] Impor semua fungsionalitas JavaScript dari Bootstrap
+// [EN] Import all of Bootstrap's JS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -20,5 +26,7 @@ document.querySelector('#app').innerHTML = `
     </p>
   </div>
 `
+
+setupCounter(document.querySelector('#counter'))
 
 setupCounter(document.querySelector('#counter'))
