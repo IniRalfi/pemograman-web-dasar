@@ -1,24 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pwd2025</title>
-  </head>
-  <body>
-    <div class="app">
-      <div class="main-container">
-        <!-- bagian header -->
-        <header class="container text-center py-5 my-4">
-          <h1 class="main-title">Pustaka Tugas HTML</h1>
-          <p class="subtitle">
-            Koleksi Kode pada Mata kuliah Pemrograman Web Dasar
-          </p>
-        </header>
-      </div>
-    </div>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pwd2025</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="app">
+    <div class="main-container">
+      <!-- bagian header -->
+      <header class="container text-center py-5 my-4">
+        <h1 class="main-title">Pustaka Tugas HTML</h1>
+        <p class="subtitle">Koleksi Kode pada Mata kuliah Pemrograman Web Dasar</p>
+      </header>
+
+      <main class="container">
+        <div class="row g-4">
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="assignment-card">
+              <div class="card-header d-flex align-items-center mb-4">
+                <div class="card-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+
+                <div>
+                  <h5 class="card-title mb-1">Praktikum Pertemuan 1</h5>
+                  <div class="card-date">9 Oktober 2025</div>
+                </div>
+              </div>
+
+              <!-- Untuk halaman 1 -->
+              <div class="buttons-container">
+                <a href="/materi/Pertemuan_1/halaman1.html" target="_blank" class="btn-modern">
+                  <i class="fas fa-external-link-alt"></i> Halaman 1
+                </a>
+                <a href="/materi/Pertemuan_1/halaman2.html" class="btn-modern">
+                  <i class="fas fa-file-code"></i> Halaman 2
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
